@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  proyectos-micro-backend:
+    container_name: proyectos-micro-backend
+    image: proyectos-micro-backend:latest
+    build:
+      context: .
+    ports:
+      - "4002"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
+    networks:
+      - asesorias-app
+
+  balanceador-carga:
+    container_name: balanceador-carga
+    image: balanceador-carga:latest
+    build:
+      context: ./balanceador
+    ports:
+      - "4004:80"
+    networks:
+      - asesorias-app
+  networks:
+  asesorias-app:
