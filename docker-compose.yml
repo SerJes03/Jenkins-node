@@ -22,5 +22,5 @@ services:
       - "4004:80"
     networks:
       - asesorias-app
-  networks:
+networks:
   asesorias-app:

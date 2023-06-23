@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Construir imagen de Docker'){
-            steps{
+            steps {
                 script {
                     withCredentials([
                         string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
@@ -34,3 +34,4 @@ pipeline {
         }
     }
 }
+
